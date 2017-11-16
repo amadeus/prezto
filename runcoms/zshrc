@@ -30,3 +30,13 @@ export GITHUB_USER="amadeus"
 alias myssh='ssh amadeus@104.236.168.198'
 alias eightbit='ssh eightbit@184.106.207.72'
 alias rmpyc='find . -name "*.pyc" -exec rm -rf {} \;'
+
+# Prevent esc from delaying
+KEYTIMEOUT=1
+
+# Use the vi navigation keys in menu completion
+zmodload zsh/complist
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
