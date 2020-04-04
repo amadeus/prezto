@@ -8,7 +8,36 @@
 
 # Load manually installed NVM into the shell session.
 if [[ -s "${NVM_DIR:=$HOME/.nvm}/nvm.sh" ]]; then
-  source "${NVM_DIR}/nvm.sh"
+  # source "${NVM_DIR}/nvm.sh"
+  # Testing out lazy nvm/node
+  lazynvm() {
+    unset -f nvm node npm npx
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+    if [ -f "$NVM_DIR/bash_completion" ]; then
+      [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+    fi
+  }
+
+  nvm() {
+    lazynvm
+    nvm $@
+  }
+
+  node() {
+    lazynvm
+    node $@
+  }
+
+  npm() {
+    lazynvm
+    npm $@
+  }
+
+  npx() {
+    lazynvm
+    npx $@
+  }
 
 # Load package manager installed NVM into the shell session.
 elif (( $+commands[brew] )) && \

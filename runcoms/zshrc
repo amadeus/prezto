@@ -1,4 +1,4 @@
-# Uuncomment this to see what gets sourced on initialization
+# Uncomment this to see what gets sourced on initialization
 # setopt SOURCE_TRACE
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]];
