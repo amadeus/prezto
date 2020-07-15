@@ -64,3 +64,5 @@ fi
 
 # Testing out fnm - https://github.com/Schniz/fnm
 eval "$(fnm env --multi)"
+
+export PATH="$HOME/.cargo/bin:$PATH"
