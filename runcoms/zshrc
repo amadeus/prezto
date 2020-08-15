@@ -24,11 +24,10 @@ fi
 export ARCHFLAGS="-arch x86_64"
 export GITHUB_USER="amadeus"
 alias myssh='ssh amadeus@104.236.168.198'
-alias eightbit='ssh eightbit@184.106.207.72'
 alias rmpyc='find . -name "*.pyc" -exec rm -rf {} \;'
 
-# Prevent esc from delaying
-KEYTIMEOUT=1
+# Prevent esc from delaying (this doesn't seem to be working...
+export KEYTIMEOUT=1
 
 # Use the vi navigation keys in menu completion
 zmodload zsh/complist
