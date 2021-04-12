@@ -53,7 +53,7 @@ if [[ "$(basename -- ${(%):-%x})" != "_clid" ]]; then
   compdef _clid clid
 fi
 
-source $HOME/.cargo/env
+# source $HOME/.cargo/env
 export PATH="$HOME/.cargo/bin:$PATH"
 
 #compdef clid
@@ -65,3 +65,17 @@ if [[ "$(basename -- ${(%):-%x})" != "_clid" ]]; then
 fi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+#compdef clid
+_clid() {
+  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _CLID_COMPLETE=complete-zsh  clid)
+}
+if [[ "$(basename -- ${(%):-%x})" != "_clid" ]]; then
+  compdef _clid clid
+fi
+#compdef clid
+_clid() {
+  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _CLID_COMPLETE=complete-zsh  clid)
+}
+if [[ "$(basename -- ${(%):-%x})" != "_clid" ]]; then
+  compdef _clid clid
+fi
