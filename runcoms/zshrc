@@ -15,15 +15,13 @@ if [ -f "$HOME/.google-cloud-sdk/google-cloud-sdk/completion.zsh.inc" ];
   then source "$HOME/.google-cloud-sdk/google-cloud-sdk/completion.zsh.inc";
 fi
 
-#compdef clid
-_clid() {
-  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _CLID_COMPLETE=complete-zsh  clid)
+#compdef clyde
+_clyde() {
+  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _CLYDE_COMPLETE=complete-zsh  clyde)
 }
-if [[ "$(basename -- ${(%):-%x})" != "_clid" ]]; then
-  compdef _clid clid
+if [[ "$(basename -- ${(%):-%x})" != "_clyde" ]]; then
+  compdef _clyde clyde
 fi
-
-
 # My ssh certs
 if [ -f "$HOME/.ssh/.identites" ];
   then source "$HOME/.ssh/.identites";
