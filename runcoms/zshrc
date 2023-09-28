@@ -60,3 +60,12 @@ export PATH="$HOME/Developer/dev_utils/playdate_zig/:$PATH"
 export PLAYDATE_SDK_PATH="$HOME/Developer/PlaydateSDK/"
 export ARM_TOOLCHAIN_PATH="$HOME/Developer/dev_utils/arm-toolchain/"
 export ARM_TOOLCHAIN_VERSION=11.3.1
+# source /Users/amadeus/.nix-profile/etc/profile.d/nix.sh I don't think I need this?
+
+#compdef clyde
+_clyde() {
+  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _CLYDE_COMPLETE=complete-zsh  clyde)
+}
+if [[ "$(basename -- ${(%):-%x})" != "_clyde" ]]; then
+  compdef _clyde clyde
+fi
