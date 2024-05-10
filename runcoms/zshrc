@@ -28,7 +28,6 @@ if [ -f "$HOME/.ssh/.identites" ];
 fi
 
 # My aliases and vars
-export ARCHFLAGS="-arch x86_64"
 export GITHUB_USER="amadeus"
 alias myssh='ssh amadeus@104.236.168.198'
 alias rmpyc='find . -name "*.pyc" -exec rm -rf {} \;'
