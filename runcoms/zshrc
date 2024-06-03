@@ -31,6 +31,7 @@ fi
 export GITHUB_USER="amadeus"
 alias myssh='ssh amadeus@104.236.168.198'
 alias rmpyc='find . -name "*.pyc" -exec rm -rf {} \;'
+alias pp='pnpx pierre@latest'
 
 # Prevent esc from delaying in vim
 # (used in conjunction with some other settings in vim as well)
