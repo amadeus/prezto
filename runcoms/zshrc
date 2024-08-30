@@ -5,23 +5,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]];
   then source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/.google-cloud-sdk/google-cloud-sdk/path.zsh.inc" ];
-  then source "$HOME/.google-cloud-sdk/google-cloud-sdk/path.zsh.inc";
-fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/.google-cloud-sdk/google-cloud-sdk/completion.zsh.inc" ];
-  then source "$HOME/.google-cloud-sdk/google-cloud-sdk/completion.zsh.inc";
-fi
-
-#compdef clyde
-_clyde() {
-  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _CLYDE_COMPLETE=complete-zsh  clyde)
-}
-if [[ "$(basename -- ${(%):-%x})" != "_clyde" ]]; then
-  compdef _clyde clyde
-fi
 # My ssh certs
 if [ -f "$HOME/.ssh/.identites" ];
   then source "$HOME/.ssh/.identites";
@@ -43,3 +26,7 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
+
+if [ -f "$HOME/.localrc" ];
+  then source "$HOME/.localrc";
+fi
