@@ -62,6 +62,22 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
 
-# export TSC_WATCHFILE='PriorityPollingInterval'
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+# Do I even still need this?
+# [ -s "/Users/amadeus/.bun/_bun" ] && source "/Users/amadeus/.bun/_bun"
+
+eval "$(fnm env)"
+corepack enable
+eval "$(direnv hook zsh)"
+
+# Where are these coming from?
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/ruby/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby/include"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# export DOCKER_HOST=unix://"$HOME/.docker/run/docker.sock"

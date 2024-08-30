@@ -43,29 +43,3 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
-PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
-
-if [[ -f /usr/local/bin/virtualenvwrapper.sh ]]; then source /usr/local/bin/virtualenvwrapper.sh; fi
-
-# source $HOME/.cargo/env
-export PATH="$HOME/.cargo/bin:$PATH"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-eval "$(fnm env)"
-
-# PlayDate Dev Related stuff...
-export PATH="$HOME/Developer/dev_utils/playdate_zig/:$PATH"
-export PLAYDATE_SDK_PATH="$HOME/Developer/PlaydateSDK/"
-export ARM_TOOLCHAIN_PATH="$HOME/Developer/dev_utils/arm-toolchain/"
-export ARM_TOOLCHAIN_VERSION=11.3.1
-# source /Users/amadeus/.nix-profile/etc/profile.d/nix.sh I don't think I need this?
-
-#compdef clyde
-_clyde() {
-  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _CLYDE_COMPLETE=complete-zsh  clyde)
-}
-if [[ "$(basename -- ${(%):-%x})" != "_clyde" ]]; then
-  compdef _clyde clyde
-fi
